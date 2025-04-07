@@ -1,5 +1,7 @@
 #!/bin/bash
 
+touch /tmp/disable-mysql
+
 echo "Restaurando MySQL para configuração padrão com root via auth_socket..."
 
 echo "[1/8] Parando o serviço MySQL..."
@@ -46,3 +48,5 @@ if sudo mysql -e "SELECT User, Host, plugin FROM mysql.user WHERE User='root';";
 else
     echo "Algo deu errado. Verifique os logs ou tente novamente."
 fi
+
+rm /tmp/disable-mysql
