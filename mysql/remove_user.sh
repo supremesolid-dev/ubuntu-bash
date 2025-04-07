@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Uso: ./mysql_user_remove.sh -h HOST -u USERNAME
-
-#   -h HOST         : Endereço do host do usuário (ex.: localhost)
-#   -u USERNAME     : Nome do usuário a ser removido
-
 # Função para exibir a mensagem de uso
 usage() {
   echo "Uso: $0 -h HOST -u USERNAME"

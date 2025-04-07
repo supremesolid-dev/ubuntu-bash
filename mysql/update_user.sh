@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Uso: ./mysql_update_user.sh -h HOST -u USERNAME [-p NEW_PASSWORD] [-m PERMISSION] [-a PLUGIN]
-#
-#   -h HOST         : Endereço do host (ex.: localhost)
-#   -u USERNAME     : Nome do usuário a ser atualizado
-#   -p NEW_PASSWORD : Nova senha do usuário (opcional)
-#   -m PERMISSION   : Permissão a ser configurada (admin, readonly ou standard). Opcional.
-#   -a PLUGIN       : Plugin de autenticação (native, sha256, sha2cached, socket). Opcional.
-#                     Se não informado, será usado o plugin nativo (mysql_native_password).
-
 # Função para exibir a mensagem de uso
 usage() {
   echo "Uso: $0 -h HOST -u USERNAME [-p NEW_PASSWORD] [-m PERMISSION] [-a PLUGIN]"

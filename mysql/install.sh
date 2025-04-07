@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Uso: ./mysql_install_configure.sh [-b BIND_IP] [-x MYSQLX_BIND_IP] [-o]
-#
-#   -b BIND_IP         : IP para bind-address (ex.: 0.0.0.0 para aceitar conexões remotas)
-#   -x MYSQLX_BIND_IP  : IP para mysqlx-bind-address
-#   -o                 : Aplicar otimizações adicionais no mysqld.cnf
-#                        (ex: aumentar conexões, buffers, etc.)
-
 usage() {
   echo "Uso: $0 [-b BIND_IP] [-x MYSQLX_BIND_IP] [-o]"
   echo ""

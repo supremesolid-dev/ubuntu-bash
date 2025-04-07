@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Uso: ./mysql_user_create.sh -h HOST -u USERNAME -p PASSWORD [-a]
-
-#   -h HOST         : Endereço do host (ex.: localhost)
-#   -u USERNAME     : Nome do usuário a ser criado
-#   -p PASSWORD     : Senha do usuário
-#   -a              : Concede privilégios de administrador (todos os privilégios)
-
 # Função para exibir a mensagem de uso
 usage() {
   echo "Uso: $0 -h HOST -u USERNAME -p PASSWORD [-a]"

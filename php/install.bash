@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Uso: ./php_install_multiversions.sh [-v "5.6 7.4 8.2"] [-m] [-p]
-#
-#   -v "VERSÕES"     : Lista de versões PHP a instalar (ex: "5.6 7.4 8.2")
-#   -m               : Instalar módulos comuns para todas as versões
-#   -p               : Instalar suporte PAM com PECL
-#   -h               : Mostrar ajuda
-
 usage() {
   echo "Uso: $0 [-v \"5.6 7.4 8.2\"] [-m] [-p]"
   echo ""
