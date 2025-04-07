@@ -43,7 +43,6 @@ fi
 echo "Adicionando repositório do PHP (ppa:ondrej/php)..."
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
-sudo apt upgrade -y
 
 # Instala dependências básicas
 sudo apt install -y zip curl software-properties-common
