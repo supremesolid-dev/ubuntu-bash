@@ -34,6 +34,6 @@ apt-get install -y \
     cgroup-tools \
     tar \
     ubuntu-standard \
-    dnsutils
+    dnsutils sudo
 
 timedatectl set-timezone America/Sao_Paulo
