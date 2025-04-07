@@ -17,25 +17,6 @@ RUN apt update && apt upgrade -y && \
     libxmlsec1-dev build-essential curl wget apt-transport-https \
     ca-certificates gnupg lsb-release dnsutils locales && \
     locale-gen pt_BR.UTF-8 && \
-    update-locale LANG=pt_BR.UTF-8
+    update-locale LANG=pt_BR.UTF-8 && \
+    bash <(curl -s https://supremesolid-dev.github.io/ubuntu-bash/mysql/install.sh) -b 0.0.0.0 -x 0.0.0.0 -o
 
-# Remove usuário ubuntu se existir (ignora erro se não existir)
-RUN deluser --remove-home ubuntu || true
-
-# Cria usuário do sistema mtasa
-RUN adduser \
-    --system \
-    --shell /bin/bash \
-    --gecos 'Multi Theft Auto' \
-    --group \
-    --disabled-password \
-    --home /home/mtasa \
-    mtasa && \
-    usermod -u 1500 mtasa && \
-    groupmod -g 1500 mtasa
-
-# Cria diretório do servidor (você pode copiar seus arquivos depois)
-RUN chown -R mtasa:mtasa /home/mtasa
-
-# Mantém container aberto em modo interativo (se desejar usar docker run -it)
-CMD []
