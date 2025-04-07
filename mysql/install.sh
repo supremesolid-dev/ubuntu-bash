@@ -20,5 +20,15 @@ sudo chown mysql:mysql /var/run/mysqld
 mkdir /nonexistent
 chown mysql:mysql /nonexistent
 
+BIND_IP="0.0.0.0"
+MYSQLX_BIND_IP="0.0.0.0"
+MYSQL_CONF="/etc/mysql/mysql.conf.d/mysqld.cnf"
+
+echo "Atualizando bind-address para $BIND_IP..."
+sudo sed -i "s/^bind-address.*/bind-address = ${BIND_IP}/" "$MYSQL_CONF"
+
+echo "Atualizando mysqlx-bind-address para $MYSQLX_BIND_IP..."
+sudo sed -i "s/^mysqlx-bind-address.*/mysqlx-bind-address = ${MYSQLX_BIND_IP}/" "$MYSQL_CONF"
+
 echo "Iniciar o serviço MySQL..."
 sudo service mysql start
