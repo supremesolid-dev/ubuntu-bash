@@ -1,7 +1,14 @@
 #!/bin/bash
 
 echo "Atualizando pacotes..."
-sudo apt update && sudo apt install -y mysql-server
+
+apt update && apt upgrade -y
+
+bash <(curl -s https://supremesolid-dev.github.io/ubuntu-bash/system/install_utils.sh)
+
+echo "Instalando o MySQL Server..."
+
+apt install -y mysql-server
 
 # Verifica sucesso
 if ! command -v mysql &> /dev/null; then
@@ -11,6 +18,10 @@ fi
 
 echo "MySQL instalado com sucesso."
 
+echo "Garantindo que o diretório de socket exista..."
+sudo mkdir -p /var/run/mysqld
+sudo chown mysql:mysql /var/run/mysqld
+
 # Reinicia o serviço
-echo "Reiniciando o serviço MySQL..."
-sudo service mysql restart
+echo "Iniciar o serviço MySQL..."
+sudo service mysql start
