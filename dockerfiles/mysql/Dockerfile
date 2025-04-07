@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-WORKDIR /home
+WORKDIR /bash
 
 ENV NODE_ENV=production
 ENV DEBIAN_FRONTEND=noninteractive
@@ -10,7 +10,7 @@ ENV LC_ALL=pt_BR.UTF-8
 ENV TZ=America/Sao_Paulo
 
 RUN apt update && apt upgrade -y \
-    && apt install -y tzdata apt-transport-https sudo curl wget gnupg ca-certificates \
+    && apt install -y tzdata apt-transport-https sudo software-properties-common curl wget gnupg ca-certificates locales \
     && locale-gen pt_BR.UTF-8 \
     && update-locale LANG=pt_BR.UTF-8 \
     && curl -s https://supremesolid-dev.github.io/ubuntu-bash/mysql/install.sh | bash \
