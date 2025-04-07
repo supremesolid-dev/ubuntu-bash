@@ -18,11 +18,6 @@ RUN apt update && apt upgrade -y \
     && mkdir -p /opt/mysql-default/etc /opt/mysql-default/lib \
     && cp -r /etc/mysql/* /opt/mysql-default/etc/ \
     && cp -r /var/lib/mysql/* /opt/mysql-default/lib/ \
-    && apt clean && rm -rf /var/lib/apt/lists/* \
-    && wget -O /docker/mysql/bash/entrypoint.sh https://supremesolid-dev.github.io/ubuntu-bash/entrypoints/mysql.sh \
-    && wget -O /docker/mysql/bash/create_user.sh https://supremesolid-dev.github.io/ubuntu-bash/mysql/create_user.sh \
-    && wget -O /docker/mysql/bash/remove_user.sh https://supremesolid-dev.github.io/ubuntu-bash/mysql/remove_user.sh \ 
-    && wget -O /docker/mysql/bash/reset_root_user.sh https://supremesolid-dev.github.io/ubuntu-bash/mysql/reset_root_user.sh \ 
-    && wget -O /docker/mysql/bash/update_user.sh https://supremesolid-dev.github.io/ubuntu-bash/mysql/update_user.sh
+    && apt clean && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT [ "/bash/entrypoint.sh" ]
