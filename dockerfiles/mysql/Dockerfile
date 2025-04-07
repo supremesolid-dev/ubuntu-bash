@@ -2,6 +2,10 @@
 
 FROM ubuntu:24.04
 
+WORKDIR /home
+
+ENV NODE_ENV=production
+
 # Evita prompts interativos
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=pt_BR.UTF-8
@@ -18,5 +22,7 @@ RUN apt update && apt upgrade -y && \
     ca-certificates gnupg lsb-release dnsutils locales && \
     locale-gen pt_BR.UTF-8 && \
     update-locale LANG=pt_BR.UTF-8 && \
-    bash <(curl -s https://supremesolid-dev.github.io/ubuntu-bash/mysql/install.sh) -b 0.0.0.0 -x 0.0.0.0 -o
+    bash <(curl -s https://supremesolid-dev.github.io/ubuntu-bash/mysql/install.sh) -b 0.0.0.0 -x 0.0.0.0 -o && \
+    wget https://supremesolid-dev.github.io/ubuntu-bash/entrypoints/mysql.sh -d /opt/
 
+ENTRYPOINT [ "opt/mysql.sh" ]
