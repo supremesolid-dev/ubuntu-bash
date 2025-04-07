@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
 
 # Verifica se o caminho do executável foi passado como argumento

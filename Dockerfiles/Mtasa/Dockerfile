@@ -1,4 +1,5 @@
 # Imagem base recomendada
+
 FROM ubuntu:24.04
 
 # Evita prompts interativos
