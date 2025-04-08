@@ -40,15 +40,10 @@ sudo apt update
 # Instala dependências básicas
 sudo apt install -y zip curl software-properties-common
 
-# Instala php-pear e dev libs se for instalar PAM
-if $INSTALAR_PAM; then
-  echo "Instalando dependências para PECL PAM..."
-  sudo apt install -y libpam0g-dev php-pear
-fi
-
 # Instala cada versão
 for V in $PHP_VERSOES; do
   echo "Instalando PHP $V..."
+  
   sudo apt install -y php$V php$V-fpm php$V-dev
 
   if $INSTALAR_MODULOS; then
@@ -56,6 +51,12 @@ for V in $PHP_VERSOES; do
     sudo apt install -y php$V-{cli,common,bcmath,imap,redis,snmp,zip,curl,bz2,intl,gd,mbstring,mysql,xml,sqlite3,pgsql}
   fi
 done
+
+# Instala php-pear e dev libs se for instalar PAM
+if $INSTALAR_PAM; then
+  echo "Instalando dependências para PECL PAM..."
+  sudo apt install -y libpam0g-dev php-pear
+fi
 
 # Instala módulo PAM via PECL
 if $INSTALAR_PAM; then
